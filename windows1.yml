@@ -1,0 +1,22 @@
+---
+- name: Deployment to Windows server
+  hosts: win
+  gather_facts: no 
+
+#  vars:
+#   - webapp_name: tera_adopt.war
+#   - warSourcePath: C:\Users\techadmin\Downloads\
+#   - webapp_destination_folder: E:\XL\tomcat9\webapps
+
+  tasks:
+  - win_file:
+      path: E:\XL\tomcat9\webapps\terademo-1.0.1-BUILD-SNAPSHOT.war
+      state: absent
+  - name: Download war
+    win_copy:
+      src: /ansible/terademo-1.0.1-BUILD-SNAPSHOT.war
+      dest: E:\XL\tomcat9\webapps\
+...
+
+  
+
